@@ -148,19 +148,19 @@ fi
 
 # install compass
 status "Installing Compass"
-RUBY_VERSION=$(ruby -e "require 'rbconfig';puts \"#{RbConfig::CONFIG['ruby_version']}\"")
+RUBY_VERSION=$(ruby -e "require 'rbconfig';puts \"#{RUBY_ENGINE}/#{RbConfig::CONFIG['ruby_version']}\"")
 status "Ruby version: $RUBY_VERSION"
 export GEM_HOME=$build_dir/.gem/$RUBY_VERSION
 export PATH="$GEM_HOME/bin:$PATH"
 PATH="$GEM_HOME/bin:$PATH"
 # Test if gem home exists and matches current ruby version
-if test -d $cache_dir/ruby/.gem/$RUBY_VERSION; then
-  status "Restoring ruby gems directory from cache"
-  cp -r $cache_dir/ruby/.gem $build_dir
-  HOME=$build_dir gem update compass --user-install --no-rdoc --no-ri 2>&1 | indent
-else
+#if test -d $cache_dir/ruby/.gem/$RUBY_VERSION; then
+#  status "Restoring ruby gems directory from cache"
+#  cp -r $cache_dir/ruby/.gem $build_dir
+#  HOME=$build_dir gem update compass --user-install --no-rdoc --no-ri 2>&1 | indent
+#else
   HOME=$build_dir gem install compass --user-install --no-rdoc --no-ri 2>&1 | indent
-fi
+#fi
 
 # cache ruby gems compass
 rm -rf $cache_dir/ruby
