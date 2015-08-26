@@ -151,8 +151,8 @@ status "Installing Compass"
 #RUBY_VERSION=$(ruby -e "require 'rbconfig';puts \"#{RUBY_ENGINE}/#{RbConfig::CONFIG['ruby_version']}\"")
 RUBY_VERSION="2.2.0"
 export GEM_HOME=$build_dir/.gem/$RUBY_VERSION
-PATH="$GEM_HOME/bin:$PATH"
 export PATH="$GEM_HOME/bin:$PATH"
+PATH="$GEM_HOME/bin:$PATH"
 # Test if gem home exists and matches current ruby version
 if test -d $cache_dir/ruby/.gem/$RUBY_VERSION; then
   status "Restoring ruby gems directory from cache"
