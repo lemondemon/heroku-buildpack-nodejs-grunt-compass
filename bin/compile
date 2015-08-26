@@ -148,7 +148,7 @@ fi
 
 # install compass
 status "Installing Compass"
-RUBY_VERSION=$(ruby -e "require 'rbconfig';puts \"#{RUBY_ENGINE}/#{RbConfig::CONFIG['ruby_version']}\"")
+RUBY_VERSION=$(ruby -e "require 'rbconfig';puts \"#{RbConfig::CONFIG['ruby_version']}\"")
 status "Ruby version: $RUBY_VERSION"
 export GEM_HOME=$build_dir/.gem/$RUBY_VERSION
 export PATH="$GEM_HOME/bin:$PATH"
